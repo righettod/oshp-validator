@@ -169,6 +169,17 @@ testcases:
           - result.statuscode ShouldEqual 200
           - result.headers.Cache-Control ShouldNotBeNil
           - 'result.headers.Cache-Control ShouldEqual "no-store, max-age=0"'
+  - name: X-DNS-Prefetch-Control
+    steps:
+      - type: http
+        method: GET
+        url: '{{.target_site}}'
+        skip_body: true
+        timeout: '{{.request_timeout_in_seconds}}'
+        assertions:
+          - result.statuscode ShouldEqual 200
+          - result.headers.X-DNS-Prefetch-Control ShouldNotBeNil
+          - result.headers.X-DNS-Prefetch-Control ShouldEqual "off"          
   - name: Feature-Policy (should not exist)
     steps:
       - type: http
