@@ -178,8 +178,8 @@ testcases:
         timeout: '{{.request_timeout_in_seconds}}'
         assertions:
           - result.statuscode ShouldEqual 200
-          - result.headers.X-DNS-Prefetch-Control ShouldNotBeNil
-          - result.headers.X-DNS-Prefetch-Control ShouldEqual "off"
+          - result.headers.X-Dns-Prefetch-Control ShouldNotBeNil
+          - result.headers.X-Dns-Prefetch-Control ShouldEqual "off"
   - name: Feature-Policy (should not exist)
     steps:
       - type: http
